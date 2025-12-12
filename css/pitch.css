@@ -9,6 +9,7 @@
 :root {
     --color-gold: #ffad21;
     --color-gold-dark: #e69a00;
+    --color-dreamfree: #e73b40;
     --color-navy: #141414;
     --color-navy-light: #1a1a2e;
     --color-white: #ffffff;
@@ -151,6 +152,11 @@ section {
     gap: var(--spacing-sm);
 }
 
+.header__logo-img {
+    width: 36px;
+    height: 36px;
+}
+
 .header__logo-text {
     font-family: var(--font-display);
     font-size: 1.5rem;
@@ -159,7 +165,7 @@ section {
 }
 
 .header__logo-text span {
-    color: var(--color-gold);
+    color: var(--color-dreamfree);
 }
 
 .header__contact {
@@ -988,14 +994,22 @@ section {
 }
 
 .footer__brand {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
     font-family: var(--font-display);
     font-size: 1.25rem;
     font-weight: 600;
     color: var(--color-white);
 }
 
+.footer__logo-img {
+    width: 28px;
+    height: 28px;
+}
+
 .footer__brand span {
-    color: var(--color-gold);
+    color: var(--color-dreamfree);
 }
 
 .footer__prepared {
