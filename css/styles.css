@@ -175,10 +175,12 @@ h4 { font-size: 1.125rem; }
 .btn--primary {
     background-color: var(--color-primary);
     color: var(--color-dark);
+    border: 2px solid var(--color-primary);
 }
 
 .btn--primary:hover {
     background-color: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
     transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
 }
@@ -216,21 +218,20 @@ h4 { font-size: 1.125rem; }
 
 /* CTA Groups with Microcopy */
 .cta-group {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-xs);
+    position: relative;
+    display: inline-block;
 }
 
 .cta-group--center {
-    align-items: center;
+    text-align: center;
 }
 
 .cta-microcopy {
+    display: block;
+    margin-top: var(--space-xs);
     font-size: 0.8125rem;
     color: rgba(255, 255, 255, 0.8);
     font-style: italic;
-    padding-left: var(--space-xs);
 }
 
 .cta-microcopy::before {
