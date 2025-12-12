@@ -15,6 +15,49 @@
     const mobileMenuLinks = document.querySelectorAll('.mobile-menu__link');
     const contactForm = document.getElementById('contactForm');
     const currentYearEl = document.getElementById('currentYear');
+    const openTodayEl = document.getElementById('openToday');
+
+    // ============================================
+    // Opening Hours
+    // ============================================
+    const OPENING_HOURS = {
+        0: null, // Sunday - closed
+        1: { open: 8, close: 17 },  // Monday
+        2: { open: 8, close: 17 },  // Tuesday
+        3: { open: 8, close: 17 },  // Wednesday
+        4: { open: 8, close: 17 },  // Thursday
+        5: { open: 8, close: 17 },  // Friday
+        6: { open: 8.5, close: 13 } // Saturday
+    };
+
+    function updateOpenStatus() {
+        if (!openTodayEl) return;
+
+        const now = new Date();
+        const day = now.getDay();
+        const hour = now.getHours() + now.getMinutes() / 60;
+        const hours = OPENING_HOURS[day];
+        const textEl = openTodayEl.querySelector('.header__open-text');
+
+        if (!hours) {
+            // Closed today (Sunday)
+            openTodayEl.classList.add('header__open-today--closed');
+            if (textEl) textEl.textContent = 'Closed today';
+        } else if (hour >= hours.open && hour < hours.close) {
+            // Currently open
+            openTodayEl.classList.remove('header__open-today--closed');
+            if (textEl) textEl.textContent = 'Open now';
+        } else if (hour < hours.open) {
+            // Opens later today
+            openTodayEl.classList.remove('header__open-today--closed');
+            const openTime = hours.open === 8.5 ? '8:30am' : '8am';
+            if (textEl) textEl.textContent = `Opens ${openTime}`;
+        } else {
+            // Closed for the day
+            openTodayEl.classList.add('header__open-today--closed');
+            if (textEl) textEl.textContent = 'Closed now';
+        }
+    }
 
     // ============================================
     // Header Scroll Effect
@@ -213,6 +256,9 @@
     function init() {
         // Update year
         updateCurrentYear();
+
+        // Update open/closed status
+        updateOpenStatus();
 
         // Header scroll effect
         window.addEventListener('scroll', handleHeaderScroll, { passive: true });
