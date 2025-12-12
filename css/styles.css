@@ -214,6 +214,34 @@ h4 { font-size: 1.125rem; }
     width: 100%;
 }
 
+/* CTA Groups with Microcopy */
+.cta-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-xs);
+}
+
+.cta-group--center {
+    align-items: center;
+}
+
+.cta-microcopy {
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-style: italic;
+    padding-left: var(--space-xs);
+}
+
+.cta-microcopy::before {
+    content: '→ ';
+    font-style: normal;
+}
+
+.cta-microcopy--dark {
+    color: var(--color-text-muted);
+}
+
 /* ============================================
    Header
    ============================================ */
