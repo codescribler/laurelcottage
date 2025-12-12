@@ -420,19 +420,19 @@ h4 { font-size: 1.125rem; }
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: right center;
+    object-position: 70% 15%; /* Focus on face for mobile */
 }
 
 .hero__overlay {
     position: absolute;
     inset: 0;
+    /* Mobile: gradient from top for text readability, face visible below */
     background: linear-gradient(
-        to right,
-        rgba(45, 55, 72, 0.92) 0%,
-        rgba(45, 55, 72, 0.85) 30%,
-        rgba(45, 55, 72, 0.5) 55%,
-        rgba(45, 55, 72, 0.15) 75%,
-        transparent 100%
+        to bottom,
+        rgba(45, 55, 72, 0.9) 0%,
+        rgba(45, 55, 72, 0.7) 40%,
+        rgba(45, 55, 72, 0.3) 70%,
+        rgba(45, 55, 72, 0.15) 100%
     );
 }
 
@@ -1102,6 +1102,22 @@ h4 { font-size: 1.125rem; }
 @media (min-width: 768px) {
     :root {
         --header-height: 90px;
+    }
+
+    .hero__background img {
+        object-position: right center; /* Show full scene on larger screens */
+    }
+
+    .hero__overlay {
+        /* Desktop: horizontal gradient, text left, face visible right */
+        background: linear-gradient(
+            to right,
+            rgba(45, 55, 72, 0.92) 0%,
+            rgba(45, 55, 72, 0.85) 30%,
+            rgba(45, 55, 72, 0.5) 55%,
+            rgba(45, 55, 72, 0.15) 75%,
+            transparent 100%
+        );
     }
 
     .header__phone {
