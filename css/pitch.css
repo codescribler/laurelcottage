@@ -391,6 +391,12 @@ section {
     background: linear-gradient(180deg, var(--color-gray-100) 0%, var(--color-white) 100%);
 }
 
+@media (max-width: 767px) {
+    .preview--hero {
+        padding-top: calc(60px + var(--spacing-3xl));
+    }
+}
+
 .preview__header {
     text-align: center;
     margin-bottom: var(--spacing-2xl);
